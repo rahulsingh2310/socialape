@@ -24,7 +24,7 @@ const { signup, login, uploadImage, addUserDetails, getAuthenticatedUser, getUse
 
 
 
-
+//Screams
 app.get('/screams', getAllScreams);
 app.post('/scream', FBAuth , postOneScream);
 app.get('/scream/:screamId', getScream);
@@ -35,6 +35,8 @@ app.delete('/scream/:screamId', FBAuth, deleteScream);
 
 
 
+
+//Users
 app.post('/signup', signup);
 app.post('/login', login);
 app.post('/user/image', FBAuth, uploadImage);

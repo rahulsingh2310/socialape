@@ -1,5 +1,7 @@
 const { admin, db } = require('./admin');
 
+
+//Middleware
 module.exports = (req, res, next) => {
   let idToken;
   if (

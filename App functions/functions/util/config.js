@@ -1,3 +1,5 @@
+//Config file
+
 module.exports = {
   apiKey: "AIzaSyCyMwwINRZTWdBcqtw-SielI0O11HkWts0",
   authDomain: "socialmediaape-a63d5.firebaseapp.com",

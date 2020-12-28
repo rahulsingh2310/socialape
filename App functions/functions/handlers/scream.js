@@ -1,5 +1,8 @@
 const { db } = require('../util/admin');
 
+
+//get All Screams
+
 exports.getAllScreams = (req, res) => {
   db.collection('screams')
     .orderBy('createdAt', 'desc')
@@ -25,6 +28,14 @@ exports.getAllScreams = (req, res) => {
     });
 };
 
+
+
+
+
+
+
+
+//POST one scream
 
 exports.postOneScream = (req, res) => {
   if (req.body.body.trim() === '') {
@@ -54,6 +65,10 @@ exports.postOneScream = (req, res) => {
       console.error(err);
     });
 };
+
+
+
+
 
 
 
@@ -179,6 +194,12 @@ exports.likeScream = (req, res) => {
     });
 };
 
+
+
+
+
+
+//Unlike a scream
 exports.unlikeScream = (req, res) => {
   const likeDocument = db
     .collection('likes')

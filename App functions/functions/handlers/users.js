@@ -16,6 +16,8 @@ const {
 
 
 
+
+//Signup User
 exports.signup = (req,res) => {
   let Token,userid;
   const newUser = {
@@ -74,7 +76,7 @@ const noImg = 'noImg.jpg';
 }
 
 
-
+//Login User
 exports.login = (req,res) => {
   const user = {
   email: req.body.email,
@@ -105,6 +107,10 @@ firebase
 }
 
 
+
+
+
+//Upload Image
 exports.uploadImage = (req, res) => {
   const BusBoy = require("busboy");
   const path = require("path");
@@ -115,9 +121,7 @@ exports.uploadImage = (req, res) => {
 
   let imageToBeUploaded = {};
   let imageFileName;
-  // String for image token
-  //let generatedToken = uuid();
-
+  
   busboy.on("file", (fieldname, file, filename, encoding, mimetype) => {
     console.log(fieldname, file, filename, encoding, mimetype);
     if (mimetype !== "image/jpeg" && mimetype !== "image/png" && mimetype !== "image/jpg") {
@@ -142,8 +146,6 @@ exports.uploadImage = (req, res) => {
         metadata: {
           metadata: {
             contentType: imageToBeUploaded.mimetype,
-            //Generate token to be appended to imageUrl
-        //    firebaseStorageDownloadTokens: generatedToken,
           },
         },
       })
@@ -273,7 +275,7 @@ exports.getAuthenticatedUser = (req, res) => {
 
 
 
-
+//Mark Notifications
 exports.markNotificationsRead = (req, res) => {
   let batch = db.batch();
   req.body.forEach((notificationId) => {

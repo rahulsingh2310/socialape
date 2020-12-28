@@ -1,15 +1,21 @@
 
+//function to check Email or not
+
 const isEmail = (email) => {
   const regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   if(email.match(regex)) return true;
   else return false;
 }
 
+
+//function to check submitted value is empty or not
 const isEmpty = (string) => {
   if(string.trim() === '') return true;
   else return false;
 }
 
+
+//validate Signup Data
 exports.validateSignupData = (data) => {
   let errors = {};
 
@@ -30,6 +36,8 @@ exports.validateSignupData = (data) => {
   };
 };
 
+
+//Validate Login data
 exports.validateLoginData = (data) => {
   let errors = {};
 
@@ -42,12 +50,13 @@ exports.validateLoginData = (data) => {
   };
 };
 
+
+//reducer
 exports.reduceUserDetails = (data) => {
   let userDetails = {};
 
   if (!isEmpty(data.bio.trim())) userDetails.bio = data.bio;
   if (!isEmpty(data.website.trim())) {
-    // https://website.com
     if (data.website.trim().substring(0, 4) !== 'http') {
       userDetails.website = `http://${data.website.trim()}`;
     } else userDetails.website = data.website;
